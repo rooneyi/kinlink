@@ -1,82 +1,100 @@
-<!-- resources/js/components/Slider.vue -->
-<script setup>
-import { ref } from 'vue';
-
-const slides = ref([
-    {
-        title: 'Vous êtes un professionnel <br>du numérique ?',
-        description: 'Bénéficiez des missions et offres passionnantes <br> dans votre domaine d\'expertise',
-        image: '/assets-front/images/tortue.png',
-        button: null
-    },
-    {
-        title: 'Vous êtes une entreprise en quête des solutions numériques ?',
-        description: 'Nos experts vous accompagnent pour transformer <br> votre projet en succès',
-        image: '/assets-front/images/tortue.png',
-        button: {
-            text: 'Rejoignez-nous',
-            href: '/register' // à adapter selon route Laravel
-        }
-    }
-]);
-
-const currentSlide = ref(0);
-
-function nextSlide() {
-    currentSlide.value = (currentSlide.value + 1) % slides.value.length;
-}
-
-function prevSlide() {
-    currentSlide.value = (currentSlide.value - 1 + slides.value.length) % slides.value.length;
-}
-
-// Optionnel : autoplay
-setInterval(nextSlide, 5000);
-</script>
-
 <template>
-    <div class="banner-area-two three relative overflow-hidden">
-        <div class="relative w-full">
-            <div v-for="(slide, index) in slides" :key="index"
-                 class="transition-opacity duration-1000 ease-in-out absolute inset-0"
-                 :class="currentSlide === index ? 'opacity-100 z-10' : 'opacity-0 z-0'">
-                <div class="table w-full h-full">
-                    <div class="table-cell align-middle">
-                        <div class="container mx-auto px-6">
-                            <div class="flex flex-col lg:flex-row items-center">
-                                <div class="lg:w-1/2 text-center lg:text-left">
-                                    <div class="banner-content">
-                                        <h1 class="text-4xl font-bold mb-4" v-html="slide.title"></h1>
-                                        <p class="text-lg mb-6" v-html="slide.description"></p>
-                                        <div class="banner-btn-area">
-                                            <a v-if="slide.button"
-                                               :href="slide.button.href"
-                                               class="bg-blue-600 text-white px-6 py-3 rounded-lg shadow-md hover:bg-blue-500 transition">
-                                                {{ slide.button.text }}
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="lg:w-1/2 hidden sm:block">
-                                    <div class="banner-img relative z-10">
-                                        <img :src="slide.image" alt="Tortue Kinlink" class="mx-auto" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+    <section class="relative w-full overflow-hidden bg-gray-50">
+        <!-- Slides -->
+        <div class="relative h-[80vh] flex items-center justify-center">
+            <transition-group name="fade" tag="div" class="absolute inset-0">
+                <div
+                    v-for="(slide, index) in slides"
+                    :key="index"
+                    v-show="currentSlide === index"
+                    class="absolute inset-0 flex flex-col md:flex-row items-center justify-center px-6 md:px-20 text-center md:text-left"
+                >
+                    <!-- Texte -->
+                    <div class="md:w-1/2 space-y-4 z-10">
+                        <h1 class="text-3xl md:text-5xl font-bold text-gray-900 leading-tight">
+                            {{ slide.title }}
+                        </h1>
+                        <p class="text-gray-700 text-lg md:text-xl">
+                            {{ slide.description }}
+                        </p>
+                        <a
+                            href="/register"
+                            class="inline-block mt-4 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl shadow-lg transition"
+                        >
+                            Rejoignez-nous
+                        </a>
+                    </div>
+
+                    <!-- Image -->
+                    <div class="md:w-1/2 mt-8 md:mt-0 flex justify-center">
+                        <img
+                            :src="slide.image"
+                            alt="Illustration"
+                            class="max-h-[350px] w-auto object-contain"
+                        />
                     </div>
                 </div>
-            </div>
-
-            <!-- Navigation (flèches) -->
-            <button @click="prevSlide"
-                    class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md hover:bg-gray-100">
-                ‹
-            </button>
-            <button @click="nextSlide"
-                    class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md hover:bg-gray-100">
-                ›
-            </button>
+            </transition-group>
         </div>
-    </div>
+
+        <!-- Boutons -->
+        <div class="absolute inset-x-0 bottom-6 flex justify-center space-x-3">
+            <button
+                v-for="(slide, index) in slides"
+                :key="index"
+                @click="goToSlide(index)"
+                class="w-3 h-3 rounded-full transition-all duration-300"
+                :class="currentSlide === index ? 'bg-blue-600 w-6' : 'bg-gray-300'"
+            ></button>
+        </div>
+    </section>
 </template>
+
+<script setup>
+import { ref, onMounted, onUnmounted } from "vue";
+
+const slides = [
+    {
+        title: "Vous êtes un professionnel du numérique ?",
+        description:
+            "Bénéficiez des missions et offres passionnantes dans votre domaine d'expertise.",
+        image: "/assets/images/tortue.png",
+    },
+    {
+        title: "Vous êtes une entreprise en quête de solutions numériques ?",
+        description:
+            "Nos experts vous accompagnent pour transformer votre projet en succès.",
+        image: "/assets/images/tortue.png",
+    },
+];
+
+const currentSlide = ref(0);
+let interval = null;
+
+const goToSlide = (index) => {
+    currentSlide.value = index;
+};
+
+const nextSlide = () => {
+    currentSlide.value = (currentSlide.value + 1) % slides.length;
+};
+
+onMounted(() => {
+    interval = setInterval(nextSlide, 6000);
+});
+
+onUnmounted(() => {
+    clearInterval(interval);
+});
+</script>
+
+<style scoped>
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity 1s ease;
+}
+.fade-enter-from,
+.fade-leave-to {
+    opacity: 0;
+}
+</style>
