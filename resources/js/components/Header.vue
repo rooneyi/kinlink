@@ -1,76 +1,82 @@
-<script setup lang="ts">
-    import { Link } from '@inertiajs/vue3';
-    // Import des helpers de routes générés
-    import { home, dashboard, login, register } from '@/routes';
-    import { business, pro, community } from '@/routes/naye';
-    import { emarket } from '@/routes/wenze';
-</script>
-
 <template>
-    <header
-            class="mb-6 w-full max-w-[335px] text-sm not-has-[nav]:hidden lg:max-w-4xl"
-        >
-            <nav class="flex flex-wrap items-center justify-end gap-4">
-                <!-- Liens principaux -->
-                <Link
-                    :href="home().url"
-                    class="inline-block rounded-sm border border-transparent px-5 py-1.5 text-sm leading-normal text-[#1b1b18] hover:border-[#19140035] dark:text-[#EDEDEC] dark:hover:border-[#3E3E3A]"
-                >
-                    Accueil
-                </Link>
+    <header>
+        <!-- Top Header -->
+        <div class="bg-[#0B2A35] text-white py-2">
+            <div class="container mx-auto flex flex-col md:flex-row justify-between items-center px-4">
+                <div class="flex items-center space-x-4">
+                    <a href="/about" class="bg-[#00CDB0] text-white px-3 py-1 rounded text-sm hover:bg-[#00b39c]">
+                        Qui sommes-nous ?
+                    </a>
+                </div>
+                <div class="flex items-center space-x-3 mt-2 md:mt-0">
+                    <span class="text-sm">Suivez-nous :</span>
+                    <a href="https://facebook.com/KinLinkNaye" target="_blank"><i class="icofont-facebook"></i></a>
+                    <a href="https://twitter.com/KinlinkNaye" target="_blank"><i class="icofont-twitter"></i></a>
+                    <a href="https://www.linkedin.com/company/kinlink-naye" target="_blank"><i class="icofont-linkedin"></i></a>
+                    <a href="https://www.instagram.com/kinlink.naye/" target="_blank"><i class="icofont-instagram"></i></a>
+                </div>
+            </div>
+        </div>
 
-                <Link
-                    :href="business().url"
-                    class="inline-block rounded-sm border border-transparent px-5 py-1.5 text-sm leading-normal text-[#1b1b18] hover:border-[#19140035] dark:text-[#EDEDEC] dark:hover:border-[#3E3E3A]"
-                >
-                    Naye Business
-                </Link>
+        <!-- Navbar -->
+        <nav class="bg-white shadow sticky top-0 z-50">
+            <div class="container mx-auto flex justify-between items-center px-4 py-3">
+                <a href="/" class="flex items-center">
+                    <img src="/assets/img/logo-principal.png" alt="Logo" class="h-10" />
+                </a>
 
-                <Link
-                    :href="pro().url"
-                    class="inline-block rounded-sm border border-transparent px-5 py-1.5 text-sm leading-normal text-[#1b1b18] hover:border-[#19140035] dark:text-[#EDEDEC] dark:hover:border-[#3E3E3A]"
-                >
-                    Naye Pro
-                </Link>
+                <ul class="hidden md:flex items-center space-x-6 text-gray-700">
+                    <li><a href="/" class="hover:text-[#00CDB0]">Accueil</a></li>
 
-                <Link
-                    :href="community().url"
-                    class="inline-block rounded-sm border border-transparent px-5 py-1.5 text-sm leading-normal text-[#1b1b18] hover:border-[#19140035] dark:text-[#EDEDEC] dark:hover:border-[#3E3E3A]"
-                >
-                    Naye Community
-                </Link>
+                    <li class="relative group">
+                        <a href="#" class="flex items-center hover:text-[#00CDB0]">
+                            Naye Business <i class="icofont-simple-down ml-1"></i>
+                        </a>
+                        <ul class="absolute hidden group-hover:block bg-white shadow-lg rounded-md mt-2 w-56">
+                            <li><a href="/search-profil" class="block px-4 py-2 hover:bg-gray-100">Trouver un professionnel</a></li>
+                            <li><a href="/missions" class="block px-4 py-2 hover:bg-gray-100">Soumettre une mission</a></li>
+                            <li><a href="/community" class="block px-4 py-2 hover:bg-gray-100">Communauté d'entreprises</a></li>
+                            <li><a href="/abonnement-business" class="block px-4 py-2 hover:bg-gray-100">S'abonner</a></li>
+                        </ul>
+                    </li>
 
-                <Link
-                    :href="emarket().url"
-                    class="inline-block rounded-sm border border-transparent px-5 py-1.5 text-sm leading-normal text-[#1b1b18] hover:border-[#19140035] dark:text-[#EDEDEC] dark:hover:border-[#3E3E3A]"
-                >
-                    Wenze E-market
-                </Link>
+                    <li><a href="/trainings" class="hover:text-[#00CDB0]">Formations</a></li>
+                    <li><a href="/community" class="hover:text-[#00CDB0]">Communautés</a></li>
+                    <li><a href="/wenze" class="hover:text-[#00CDB0]">Wenze E-Market</a></li>
+                </ul>
 
-                <!-- Auth -->
-                <Link
-                    v-if="$page.props.auth.user"
-                    :href="dashboard().url"
-                    class="inline-block rounded-sm border border-[#19140035] px-5 py-1.5 text-sm leading-normal text-[#1b1b18] hover:border-[#1915014a] dark:border-[#3E3E3A] dark:text-[#EDEDEC] dark:hover:border-[#62605b]"
-                >
-                    Dashboard
-                </Link>
+                <!-- Right: Auth Buttons -->
+                <div class="flex items-center space-x-3">
+                    <a href="/register" class="border border-[#00CDB0] text-[#00CDB0] px-3 py-1 rounded hover:bg-[#00CDB0] hover:text-white transition">
+                        M'inscrire
+                    </a>
+                    <a href="/login" class="bg-[#00CDB0] text-white px-3 py-1 rounded hover:bg-[#00b39c] transition">
+                        Me connecter
+                    </a>
+                </div>
 
-                <template v-else>
-                    <Link
-                        :href="login().url"
-                        class="inline-block rounded-sm border border-transparent px-5 py-1.5 text-sm leading-normal text-[#1b1b18] hover:border-[#19140035] dark:text-[#EDEDEC] dark:hover:border-[#3E3E3A]"
-                    >
-                        Log in
-                    </Link>
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden" @click="toggleMenu">
+                    <i class="icofont-navigation-menu text-2xl text-gray-700"></i>
+                </button>
+            </div>
 
-                    <Link
-                        :href="register().url"
-                        class="inline-block rounded-sm border border-[#19140035] px-5 py-1.5 text-sm leading-normal text-[#1b1b18] hover:border-[#1915014a] dark:border-[#3E3E3A] dark:text-[#EDEDEC] dark:hover:border-[#62605b]"
-                    >
-                        Register
-                    </Link>
-                </template>
-            </nav>
-        </header>
+            <!-- Mobile Menu -->
+            <div v-if="mobileOpen" class="bg-white md:hidden shadow-md">
+                <ul class="flex flex-col p-4 space-y-3">
+                    <li><a href="/" class="hover:text-[#00CDB0]">Accueil</a></li>
+                    <li><a href="/search-profil" class="hover:text-[#00CDB0]">Trouver un professionnel</a></li>
+                    <li><a href="/trainings" class="hover:text-[#00CDB0]">Formations</a></li>
+                    <li><a href="/community" class="hover:text-[#00CDB0]">Communautés</a></li>
+                    <li><a href="/wenze" class="hover:text-[#00CDB0]">Wenze E-Market</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
 </template>
+
+<script setup>
+import { ref } from 'vue'
+const mobileOpen = ref(false)
+const toggleMenu = () => (mobileOpen.value = !mobileOpen.value)
+</script>

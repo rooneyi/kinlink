@@ -2,13 +2,13 @@
 <script setup>
 import Header from '@/components/Header.vue';
 import Slider from '@/components/Slider.vue';
-// import Podcast from '@/components/Podcast.vue';
+import Podcast from '@/components/Podcast.vue';
 import HowWeProcess from '@/components/HowWeProcess.vue';
 // import CallToAction from '@/components/CallToAction.vue';
 // import Investor from '@/components/Investor.vue';
 // import ProfessionalSubscribe from '@/components/ProfessionalSubscribe.vue';
 // import Avis from '@/components/Avis.vue';
-// import Footer from '@/components/Footer.vue';
+import Footer from '@/components/Footer.vue';
 // Aucun script dynamique nécessaire ici
 </script>
 
