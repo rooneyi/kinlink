@@ -9,7 +9,7 @@ import Button from '@/components/ui/button/Button.vue'
 <template>
     <div class="min-h-screen bg-[#f8faff] text-[#212121] font-inter">
         <!-- Header -->
-        <Header />
+        <Header :user="$page.props.auth.user" />
 
         <!-- Hero Section -->
         <section class="py-20 bg-white">

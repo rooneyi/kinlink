@@ -143,3 +143,5 @@ const stats = [
     animation: scroll 30s linear infinite;
 }
 </style>
+
+<Header :user="$page.props.auth.user" />

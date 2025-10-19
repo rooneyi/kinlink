@@ -18,7 +18,7 @@ import Footer from '@/components/Footer.vue';
     <div class="min-h-screen bg-gray-50 text-gray-800 flex flex-col">
 
         <!-- Navbar (à remplacer par ton composant Header si besoin) -->
-        <Header />
+        <Header :user="$page.props.auth.user" />
 
         <!-- Slider -->
         <Slider />
@@ -49,5 +49,3 @@ import Footer from '@/components/Footer.vue';
 
     </div>
 </template>
-
-

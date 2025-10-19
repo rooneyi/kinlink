@@ -1,7 +1,7 @@
 <template>
     <div class="relative bg-[#f8faff] font-inter text-[#212121] overflow-x-hidden">
         <!-- Navbar -->
-        <Header />
+        <Header :user="$page.props.auth.user" />
 
         <!-- Background Canvas -->
         <canvas id="background-canvas" class="fixed top-0 left-0 w-full h-full pointer-events-none z-0"></canvas>

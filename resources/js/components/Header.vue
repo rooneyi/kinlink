@@ -31,12 +31,10 @@
 
                     <!-- Naye Business Dropdown -->
                     <li class="relative">
-                        <!-- Lien principal -->
                         <span class="flex items-center hover:text-[#00CDB0] cursor-pointer" @click="isOpen = !isOpen">
                             Naye Business
                             <i class="icofont-simple-down ml-1"></i>
                         </span>
-                        <!-- Menu déroulant -->
                         <ul
                             v-show="isOpen"
                             class="absolute bg-white shadow-lg rounded-md mt-2 w-56 transition-all"
@@ -58,11 +56,23 @@
                             </li>
                         </ul>
                     </li>
+
                     <li><Link href="/community" class="hover:text-[#00CDB0]">Naye Community</Link></li>
                     <li><Link href="/naye-pro" class="hover:text-[#00CDB0]">Naye Pro</Link></li>
                     <li><Link href="/wenze" class="hover:text-[#00CDB0]">Wenze E-market</Link></li>
-                    <li><Link href="/login" class="hover:text-[#00CDB0]">Log in</Link></li>
-                    <li><Link href="/register" class="hover:text-[#00CDB0]">Register</Link></li>
+
+                    <!-- Boutons conditionnels -->
+                    <template v-if="!user">
+                        <li><Link href="/login" class="hover:text-[#00CDB0]">Log in</Link></li>
+                        <li><Link href="/register" class="hover:text-[#00CDB0]">Register</Link></li>
+                    </template>
+                    <template v-else>
+                        <li>
+                            <button @click="logout" class="hover:text-[#00CDB0] font-semibold">
+                                Déconnexion
+                            </button>
+                        </li>
+                    </template>
                 </ul>
             </div>
         </nav>
@@ -70,7 +80,22 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 import { Link } from '@inertiajs/vue3';
+
+defineProps({
+    user: {
+        type: Object,
+        default: null
+    }
+});
+
 const isOpen = ref(false);
+
+// Fonction de déconnexion
+const logout = () => {
+    // Appel API ou route Inertia pour déconnexion
+    console.log('Déconnexion...');
+    // Ici, il faudra déclencher la vraie déconnexion côté serveur
+};
 </script>

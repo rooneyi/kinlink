@@ -1,7 +1,7 @@
 <template>
     <div class="min-h-screen bg-gray-50">
         <!-- Navbar -->
-        <Home />
+        <Header :user="$page.props.auth.user" />
 
         <!-- Hero Banner -->
         <section class="relative overflow-hidden">
