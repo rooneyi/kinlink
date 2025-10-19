@@ -30,7 +30,7 @@
                         <img
                             :src="slide.image"
                             alt="Illustration"
-                            class="max-h-[350px] w-auto object-contain"
+                            class="max-h-[450px] w-auto object-contain"
                         />
                     </div>
                 </div>
