@@ -69,35 +69,41 @@ onMounted(() => {
                 </h2>
             </div>
 
-            <!-- Services Grid -->
+            <!-- Services Rows -->
             <div class="space-y-16">
                 <div
-                    v-for="(service, index) in services"
+                    v-for="(item, index) in services"
                     :key="index"
-                    class="flex flex-col md:flex-row items-center gap-8 opacity-0 transform translate-y-10 transition-all duration-700"
-                    :class="{ 'animate-fadeInUp': visible }"
-                    :style="{
-            transitionDelay: `${0.05 + index * 0.05}s`,
-            flexDirection: index % 2 === 1 ? 'row-reverse' : 'row'
-          }"
+                    class="flex flex-col md:flex-row items-stretch bg-white border border-gray-200 rounded-3xl shadow-md overflow-hidden hover:shadow-lg transition transform hover:-translate-y-1 hover:scale-[1.01] opacity-0 translate-y-10 duration-700"
+                    :class="[
+    index % 2 === 1 ? 'md:flex-row-reverse' : '',
+    visible ? 'animate-fadeInUp' : 'opacity-0 translate-y-10'
+]"
+
+                    :style="{ transitionDelay: `${0.05 + index * 0.05}s` }"
                 >
-                    <!-- Texte -->
-                    <div class="flex-1">
-                        <h3 class="text-2xl font-semibold mb-2 flex items-center gap-3">
-              <span class="inline-flex items-center bg-gradient-to-r from-blue-600 to-blue-200 text-white rounded-full px-4 py-1">
-                <i :class="service.icon"></i> {{ service.badge }}
-              </span>
-                            {{ service.title }}
+                    <div class="flex-1 p-8 flex flex-col justify-center">
+                        <h3 class="text-2xl font-bold text-blue-600 flex items-center gap-3 mb-4">
+                            <span
+                                class="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-blue-400 text-white rounded-full px-4 py-1 font-semibold shadow-md animate-bounce-slow"
+                            >
+                                <i :class="item.icon"></i> {{ item.badge }}
+                            </span>
+                            {{ item.title }}
                         </h3>
-                        <p class="text-gray-600 leading-relaxed">{{ service.description }}</p>
+                        <p
+                            class="text-gray-600 text-lg leading-relaxed"
+                            v-html="item.description"
+                        ></p>
                     </div>
 
-                    <!-- Image -->
-                    <div class="flex-1">
+                    <div
+                        class="flex items-center justify-center bg-gradient-to-br from-gray-50 to-blue-50 border-t md:border-t-0 md:border-l border-gray-200 min-w-[300px] md:max-w-[400px]"
+                    >
                         <img
-                            :src="service.img"
-                            :alt="service.title"
-                            class="rounded-xl shadow-lg w-full object-cover"
+                            :src="item.img"
+                            class="rounded-2xl border-4 border-white shadow-md object-cover w-[90%] aspect-video"
+                            :alt="item.title"
                         />
                     </div>
                 </div>
@@ -119,8 +125,9 @@ onMounted(() => {
         transform: translateY(0);
     }
 }
-
 .animate-fadeInUp {
     animation: fadeInUp 0.8s ease-out forwards;
 }
+
+
 </style>

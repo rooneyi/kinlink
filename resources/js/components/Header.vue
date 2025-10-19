@@ -59,7 +59,7 @@
                         </ul>
                     </li>
                     <li><Link href="/community" class="hover:text-[#00CDB0]">Naye Community</Link></li>
-                    <li><Link href="/trainings" class="hover:text-[#00CDB0]">Naye Pro</Link></li>
+                    <li><Link href="/naye-pro" class="hover:text-[#00CDB0]">Naye Pro</Link></li>
                     <li><Link href="/wenze" class="hover:text-[#00CDB0]">Wenze E-market</Link></li>
                     <li><Link href="/login" class="hover:text-[#00CDB0]">Log in</Link></li>
                     <li><Link href="/register" class="hover:text-[#00CDB0]">Register</Link></li>
