@@ -32,7 +32,7 @@ onMounted(() => {
         ></div>
 
         <div
-            class="relative z-10 max-w-2xl w-full mx-4 bg-white border border-gray-200 rounded-3xl shadow-[0_12px_40px_rgba(0,0,0,0.04),0_2px_8px_rgba(0,0,0,0.08)] p-10 text-center transition-transform duration-500 hover:-translate-y-2 hover:scale-[1.02] opacity-0 transform translate-y-10"
+            class="relative z-10 max-w-2xl w-full mx-4 bg-white border border-gray-200 rounded-3xl shadow-[0_12px_40px_rgba(0,0,0,0.04),0_2px_8px_rgba(0,0,0,0.08)] p-10 text-center transition-transform duration-500 hover:-translate-y-2 hover:scale-[1.02] opacity-0 transform translate-y-10 ring-1 ring-gray-100 hover:ring-blue-100 hover:shadow-lg"
             :class="{ 'animate-fadeInUp': visible }"
         >
             <!-- Badge flottant -->

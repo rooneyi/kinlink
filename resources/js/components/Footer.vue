@@ -6,7 +6,7 @@
                 <!-- Logo & description -->
                 <div class="flex flex-col gap-4 border-gray-600 lg:border-r">
                     <img
-                        src="/assets/img/logo-color.png"
+                        src="/assets/images/tortue.png"
                         alt="Logo Kinlink Naye"
                         class="h-20 object-contain -mt-2"
                     />

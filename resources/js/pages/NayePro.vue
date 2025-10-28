@@ -11,14 +11,14 @@
             <div class="container mx-auto px-6 flex flex-col items-center">
                 <!-- Badge -->
                 <Badge class="mb-7 bg-white/80 backdrop-blur-md text-[#616161] border border-[#e3e8ed] px-6 py-2 rounded-3xl shadow-md uppercase font-semibold gap-2 inline-flex">
-                    <i class="fas fa-crown text-[#007bff]"></i>
+                    <i class="fas fa-crown text-teal-600"></i>
                     Naye Pro
                 </Badge>
 
                 <!-- Title -->
                 <h1 class="text-[clamp(2.6rem,9vw,3.6rem)] font-extrabold mb-4 leading-[1.05] animate-fade-up">
                     Abonnez-vous et profitez des
-                    <span class="text-[#007bff]">opportunités</span> du digital !
+                    <span class="text-teal-600">opportunités</span> du digital !
                 </h1>
 
                 <!-- Subtitle -->
@@ -38,11 +38,13 @@
         </section>
 
         <!-- Features Section -->
-        <section class="relative py-20 px-6 backdrop-blur-md bg-white/90 border-l border-r border-b border-[#e3e8ed] shadow-sm z-10">
+        <!-- Features Section -->
+        <section class="relative py-20 px-6 backdrop-blur-md bg-gradient-to-b from-white/90 to-teal-50/30 border-l border-r border-b border-[#e3e8ed] shadow-sm z-10">
             <div class="container mx-auto">
                 <div class="text-center mb-16">
-                    <h2 class="text-3xl sm:text-4xl font-bold mb-4">
-                        Profitez de nos <span class="inline-block bg-[#e6f2ff] px-4 py-1 rounded-full text-[#007bff] font-bold">offres</span> !
+                    <h2 class="text-3xl sm:text-4xl font-extrabold mb-4">
+                        Profitez de nos
+                        <span class="inline-block bg-teal-50 px-4 py-1 rounded-full text-teal-600 font-bold">offres</span> !
                     </h2>
                     <p class="text-[#616161] max-w-[700px] mx-auto">
                         Choisissez la formule qui correspond à vos besoins et accédez à tous les avantages Naye Pro.
@@ -50,60 +52,125 @@
                 </div>
 
                 <!-- Features Grid -->
-                <div class="grid md:grid-cols-3 gap-8">
-                    <!-- Naye Moko -->
-                    <div class="feature-card p-10 rounded-xl border border-[#e3e8ed] shadow hover:shadow-lg transform hover:-translate-y-2 transition-all duration-300">
-                        <div class="card-icon mb-7 w-14 h-14 flex items-center justify-center bg-[#e6f2ff] border border-[#e6f2ff] rounded-lg shadow-sm">
-                            <i class="fas fa-bolt text-[#b28704] text-xl"></i>
+                <div class="grid md:grid-cols-3 gap-10">
+                    <!-- CARD TEMPLATE -->
+                    <div
+                        class="group relative p-10 rounded-3xl border border-transparent bg-white/80 backdrop-blur-xl shadow-[0_8px_25px_rgba(0,0,0,0.05)]
+                transition-all duration-500 hover:shadow-[0_15px_40px_rgba(0,128,128,0.15)] hover:-translate-y-3 overflow-hidden"
+                    >
+                        <!-- Gradient Glow -->
+                        <div
+                            class="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-br from-teal-100/40 to-transparent pointer-events-none"
+                        ></div>
+
+                        <!-- Icon -->
+                        <div class="relative z-10 mb-6 w-14 h-14 flex items-center justify-center bg-gradient-to-tr from-teal-50 to-white border border-teal-100 rounded-xl shadow-sm">
+                            <i class="fas fa-bolt text-teal-600 text-xl"></i>
                         </div>
-                        <h3 class="text-xl font-semibold mb-3 flex items-center gap-2">
-                            <i class="fas fa-bolt text-[#b28704]"></i>
+
+                        <!-- Title -->
+                        <h3 class="relative z-10 text-2xl font-bold mb-4 text-gray-800 flex items-center gap-2">
+                            <i class="fas fa-bolt text-teal-600"></i>
                             Offre Naye Moko
                         </h3>
-                        <Badge class="mb-4 bg-gradient-to-r from-[#ffe082] to-[#fffde7] text-[#b28704] border border-[#ffe082] px-4 py-2 rounded-3xl inline-flex gap-2 items-center">
-                            <i class="fas fa-coins"></i> 8$ = 165 Crédits
+
+                        <!-- Badge -->
+                        <Badge
+                            class="relative z-10 mb-5 bg-gradient-to-r from-teal-50 to-white text-teal-700 border border-teal-200 px-4 py-2 rounded-3xl inline-flex gap-2 items-center font-medium"
+                        >
+                            <i class="fas fa-coins"></i> 8$ = 165 crédits
                         </Badge>
-                        <p class="text-[#616161] mb-6 text-sm">
-                            <i class="fas fa-hourglass-half text-[#b28704] mr-1"></i>
-                            La consommation dépend de vous. ( <i class="fas fa-coins text-[#b28704]"></i> 1 crédit = <i class="fas fa-clock text-[#b28704]"></i> 1h de connexion )
+
+                        <!-- Infos -->
+                        <p class="relative z-10 text-[#616161] mb-6 text-sm flex items-center">
+                            <i class="fas fa-hourglass-half text-teal-600 mr-2"></i>
+                            Valable 1 mois
                         </p>
-                        <Button class="w-full btn-primary">S'abonner</Button>
+
+                        <!-- Avantages -->
+                        <ul class="relative z-10 text-[#616161] space-y-2 mb-8 text-sm">
+                            <li><i class="fas fa-check-circle text-teal-600 mr-2"></i> Accès aux missions</li>
+                            <li><i class="fas fa-check-circle text-teal-600 mr-2"></i> Accès aux formations</li>
+                            <li><i class="fas fa-check-circle text-teal-600 mr-2"></i> Accès aux événements</li>
+                        </ul>
+
+                        <!-- Bouton -->
+                        <Button
+                            class="relative z-10 w-full rounded-full py-3 bg-gradient-to-r from-teal-600 to-teal-700 hover:from-teal-700 hover:to-teal-800 text-white font-semibold shadow-md hover:shadow-lg transition-all duration-300"
+                        >
+                            S'abonner
+                        </Button>
                     </div>
 
                     <!-- Naye Illimité -->
-                    <div class="feature-card p-10 rounded-xl border border-[#e3e8ed] shadow hover:shadow-lg transform hover:-translate-y-2 transition-all duration-300">
-                        <div class="card-icon mb-7 w-14 h-14 flex items-center justify-center bg-[#e6f2ff] border border-[#e6f2ff] rounded-lg shadow-sm">
+                    <div
+                        class="group relative p-10 rounded-3xl border border-transparent bg-white/80 backdrop-blur-xl shadow-[0_8px_25px_rgba(0,0,0,0.05)]
+                transition-all duration-500 hover:shadow-[0_15px_40px_rgba(2,119,189,0.15)] hover:-translate-y-3 overflow-hidden"
+                    >
+                        <div
+                            class="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-br from-blue-100/40 to-transparent pointer-events-none"
+                        ></div>
+
+                        <div class="relative z-10 mb-6 w-14 h-14 flex items-center justify-center bg-gradient-to-tr from-blue-50 to-white border border-blue-100 rounded-xl shadow-sm">
                             <i class="fas fa-infinity text-[#0277bd] text-xl"></i>
                         </div>
-                        <h3 class="text-xl font-semibold mb-3 flex items-center gap-2">
+
+                        <h3 class="relative z-10 text-2xl font-bold mb-4 text-gray-800 flex items-center gap-2">
                             <i class="fas fa-infinity text-[#0277bd]"></i>
                             Offre Naye Illimité
                         </h3>
-                        <Badge class="mb-4 bg-gradient-to-r from-[#b3e5fc] to-[#e1f5fe] text-[#0277bd] border border-[#b3e5fc] px-4 py-2 rounded-3xl inline-flex gap-2 items-center">
+
+                        <Badge
+                            class="relative z-10 mb-5 bg-gradient-to-r from-[#b3e5fc] to-[#e1f5fe] text-[#0277bd] border border-[#b3e5fc] px-4 py-2 rounded-3xl inline-flex gap-2 items-center font-medium"
+                        >
                             <i class="fas fa-infinity"></i> 5$ / Mois = Accès illimité
                         </Badge>
-                        <p class="text-[#616161] mb-6 text-sm">
-                            <i class="fas fa-pause-circle text-[#0277bd] mr-1"></i> Peut être mise en standby à volonté.
+
+                        <p class="relative z-10 text-[#616161] mb-6 text-sm">
+                            <i class="fas fa-pause-circle text-[#0277bd] mr-2"></i> Peut être mise en standby à volonté.
                         </p>
-                        <Button class="w-full btn-primary">S'abonner</Button>
+
+                        <Button
+                            class="relative z-10 w-full rounded-full py-3 bg-gradient-to-r from-[#0277bd] to-[#01579b] text-white font-semibold shadow-md hover:shadow-lg transition-all duration-300"
+                        >
+                            S'abonner
+                        </Button>
                     </div>
 
                     <!-- Essai Gratuit -->
-                    <div class="feature-card p-10 rounded-xl border border-[#e3e8ed] shadow hover:shadow-lg transform hover:-translate-y-2 transition-all duration-300">
-                        <div class="card-icon mb-7 w-14 h-14 flex items-center justify-center bg-[#e6f2ff] border border-[#e6f2ff] rounded-lg shadow-sm">
-                            <i class="fas fa-gift text-[#388e3c] text-xl"></i>
+                    <div
+                        class="group relative p-10 rounded-3xl border border-transparent bg-white/80 backdrop-blur-xl shadow-[0_8px_25px_rgba(0,0,0,0.05)]
+                transition-all duration-500 hover:shadow-[0_15px_40px_rgba(0,128,128,0.15)] hover:-translate-y-3 overflow-hidden"
+                    >
+                        <div
+                            class="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-br from-teal-100/40 to-transparent pointer-events-none"
+                        ></div>
+
+                        <div class="relative z-10 mb-6 w-14 h-14 flex items-center justify-center bg-gradient-to-tr from-teal-50 to-white border border-teal-100 rounded-xl shadow-sm">
+                            <i class="fas fa-gift text-teal-600 text-xl"></i>
                         </div>
-                        <h3 class="text-xl font-semibold mb-3 flex items-center gap-2">
-                            <i class="fas fa-gift text-[#388e3c]"></i>
+
+                        <h3 class="relative z-10 text-2xl font-bold mb-4 text-gray-800 flex items-center gap-2">
+                            <i class="fas fa-gift text-teal-600"></i>
                             1 Mois d’essai gratuit !
                         </h3>
-                        <Badge class="mb-4 bg-gradient-to-r from-[#c8e6c9] to-[#f1f8e9] text-[#388e3c] border border-[#c8e6c9] px-4 py-2 rounded-3xl inline-flex gap-2 items-center">
+
+                        <Badge
+                            class="relative z-10 mb-5 bg-gradient-to-r from-teal-50 to-white text-teal-700 border border-teal-200 px-4 py-2 rounded-3xl inline-flex gap-2 items-center font-medium"
+                        >
                             <i class="fas fa-gift"></i> Essai gratuit
                         </Badge>
-                        <p class="text-[#616161] mb-6 text-sm">
-                            <i class="fas fa-check-circle text-[#388e3c] mr-1"></i> Profitez des services Naye Pro, pendant un mois gratuitement.
+
+                        <p class="relative z-10 text-[#616161] mb-6 text-sm">
+                            <i class="fas fa-check-circle text-teal-600 mr-2"></i> Profitez des services Naye Pro gratuitement pendant un mois.
                         </p>
-                        <Button variant="outline" class="w-full">Profiter de l’offre <i class="fas fa-gift ml-1"></i></Button>
+
+                        <Button
+                            variant="outline"
+                            class="relative z-10 w-full rounded-full py-3 bg-gradient-to-r from-[#0277bd] to-[#01579b] text-white font-semibold shadow-md hover:shadow-lg transition-all duration-300"
+                        >
+                            Profiter de l’offre <i class="fas fa-gift ml-1"></i>
+                        </Button>
                     </div>
                 </div>
             </div>

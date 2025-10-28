@@ -102,10 +102,10 @@ const cardsList = cardData;
             <!-- Cartes -->
             <div class="grid md:grid-cols-3 gap-8">
                 <div
-                    v-for="(card, i) in cards"
+                    v-for="(card, i) in cardsList"
                     :key="i"
                     ref="cards"
-                    class="relative bg-white border border-gray-200 rounded-2xl shadow-md p-8 flex flex-col justify-between transition-all duration-700"
+                    class="group relative bg-white border border-gray-200 rounded-2xl shadow-md p-8 flex flex-col justify-between transition-all duration-700 ring-1 ring-gray-100 hover:ring-blue-100 hover:shadow-lg hover:-translate-y-1 hover:scale-[1.01]"
                     :class="{
             'opacity-100 translate-y-0 blur-0': cardsVisible[i],
             'opacity-0 translate-y-12 blur-sm': !cardsVisible[i],
@@ -130,7 +130,7 @@ const cardsList = cardData;
 
                     <a
                         href="/register"
-                        class="mt-6 inline-flex items-center justify-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-full shadow-md transition-transform transform hover:-translate-y-1 hover:scale-[1.03]"
+                        class="mt-6 inline-flex items-center justify-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-full shadow-md transition-transform transform group-hover:-translate-y-1 group-hover:scale-[1.03]"
                     >
                         Rejoindre maintenant
                         <svg

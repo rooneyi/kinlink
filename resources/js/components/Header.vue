@@ -30,8 +30,8 @@
                     <li><Link href="/" class="hover:text-[#00CDB0]">Accueil</Link></li>
 
                     <!-- Naye Business Dropdown -->
-                    <li class="relative">
-                        <span class="flex items-center hover:text-[#00CDB0] cursor-pointer" @click="isOpen = !isOpen">
+                    <li class="relative" @mouseenter="isOpen = true" @mouseleave="isOpen = false">
+                        <span class="flex items-center hover:text-[#00CDB0] cursor-pointer">
                             Naye Business
                             <i class="icofont-simple-down ml-1"></i>
                         </span>
@@ -80,7 +80,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue';
+import { ref } from 'vue';
 import { Link } from '@inertiajs/vue3';
 
 defineProps({

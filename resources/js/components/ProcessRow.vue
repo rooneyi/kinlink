@@ -1,6 +1,6 @@
 <template>
     <div
-        class="flex flex-col md:flex-row items-stretch bg-white border border-gray-200 rounded-3xl shadow-md overflow-hidden hover:shadow-lg transition transform hover:-translate-y-1 hover:scale-[1.01]"
+        class="group flex flex-col md:flex-row items-stretch bg-white border border-gray-200 rounded-3xl shadow-md overflow-hidden hover:shadow-lg transition transform hover:-translate-y-1 hover:scale-[1.01] ring-1 ring-gray-100 hover:ring-blue-100 duration-300"
         :class="{ 'md:flex-row-reverse': reverse }"
     >
         <div class="flex-1 p-8 flex flex-col justify-center">
@@ -19,11 +19,11 @@
         </div>
 
         <div
-            class="flex items-center justify-center bg-gradient-to-br from-gray-50 to-blue-50 border-t md:border-t-0 md:border-l border-gray-200 min-w-[300px] md:max-w-[400px]"
+            class="flex items-center justify-center bg-gradient-to-br from-gray-50 to-blue-50 border-t md:border-t-0 md:border-l border-gray-200 min-w-[300px] md:max-w-[400px] overflow-hidden"
         >
             <img
                 :src="item.img"
-                class="rounded-2xl border-4 border-white shadow-md object-cover w-[90%] aspect-video"
+                class="rounded-2xl border-4 border-white shadow-md object-cover w-[90%] aspect-video transition-transform duration-500 ease-out group-hover:scale-105"
                 :alt="item.title"
             />
         </div>

@@ -28,7 +28,7 @@ onMounted(() => {
         ></div>
 
         <div
-            class="relative z-10 bg-white border border-gray-200 rounded-2xl shadow-md max-w-xl w-full px-8 py-14 text-center transition-all duration-700"
+            class="relative z-10 bg-white border border-gray-200 rounded-2xl shadow-md max-w-xl w-full px-8 py-14 text-center transition-all duration-700 ring-1 ring-gray-100 hover:ring-blue-100 hover:shadow-lg hover:-translate-y-1 hover:scale-[1.01]"
             :class="{
         'opacity-100 translate-y-0 blur-0': visible,
         'opacity-0 translate-y-8 blur-sm': !visible,
