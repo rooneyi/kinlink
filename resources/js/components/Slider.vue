@@ -3,7 +3,7 @@
         <!-- 🌊 Vagues teal animées -->
         <div class="absolute bottom-0 left-0 w-full h-full z-0">
             <svg
-                class="absolute bottom-0 left-0 w-[200%] animate-wave-slow opacity-60"
+                class="absolute bottom-0 left-0 w-[450%] animate-wave-slow opacity-60"
                 viewBox="0 0 1200 200"
                 xmlns="http://www.w3.org/2000/svg"
             >
@@ -14,7 +14,7 @@
             </svg>
 
             <svg
-                class="absolute bottom-0 left-0 w-[200%] animate-wave-fast opacity-80"
+                class="absolute bottom-0 left-0 w-[530%] animate-wave-fast opacity-80"
                 viewBox="0 0 1200 200"
                 xmlns="http://www.w3.org/2000/svg"
             >
@@ -25,7 +25,7 @@
             </svg>
 
             <svg
-                class="absolute bottom-0 left-0 w-[200%] animate-wave-medium opacity-70"
+                class="absolute bottom-0 left-0 w-[530%] animate-wave-medium opacity-70"
                 viewBox="0 0 1200 200"
                 xmlns="http://www.w3.org/2000/svg"
             >
@@ -172,7 +172,7 @@ onUnmounted(() => {
         transform: translateX(0);
     }
     to {
-        transform: translateX(-60%);
+        transform: translateX(-95%);
     }
 }
 @keyframes waveMoveFast {
@@ -180,7 +180,7 @@ onUnmounted(() => {
         transform: translateX(0);
     }
     to {
-        transform: translateX(-70%);
+        transform: translateX(-80%);
     }
 }
 
