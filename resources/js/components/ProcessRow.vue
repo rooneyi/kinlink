@@ -1,52 +1,67 @@
 <template>
     <div
-        class="group flex flex-col md:flex-row items-stretch bg-white border border-gray-200 rounded-3xl shadow-md overflow-hidden hover:shadow-lg transition transform hover:-translate-y-1 hover:scale-[1.01] ring-1 ring-gray-100 hover:ring-blue-100 duration-300"
-        :class="{ 'md:flex-row-reverse': reverse }"
+      class="flex flex-col md:flex-row items-center gap-10 md:gap-16 mr-15 ml-15"
+      :class="reverse ? 'md:flex-row-reverse' : ''"
     >
-        <div class="flex-1 p-8 flex flex-col justify-center">
-            <h3 class="text-2xl font-bold text-blue-600 flex items-center gap-3 mb-4">
-        <span
-            class="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-blue-400 text-white rounded-full px-4 py-1 font-semibold shadow-md animate-bounce-slow"
-        >
-          <i :class="`fas ${item.badge.icon}`"></i> {{ item.badge.text }}
-        </span>
-                {{ item.title }}
-            </h3>
-            <p
-                class="text-gray-600 text-lg leading-relaxed"
-                v-html="item.description"
-            ></p>
-        </div>
-
+      <!-- Image -->
+      <div class="w-full md:w-1/2 relative group">
+        <img
+          :src="item.img"
+          :alt="item.title"
+          class="w-full h-72 object-cover rounded-3xl shadow-xl transition-transform duration-500 group-hover:scale-105"
+        />
+  
+        <!-- ✅ Légère superposition dégradée -->
         <div
-            class="flex items-center justify-center bg-gradient-to-br from-gray-50 to-blue-50 border-t md:border-t-0 md:border-l border-gray-200 min-w-[300px] md:max-w-[400px] overflow-hidden"
+          class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+        ></div>
+  
+        <!-- ✅ Badge flottant -->
+        <div
+          class="absolute top-4 left-4 bg-white/90 text-gray-800 text-sm font-semibold px-3 py-1.5 rounded-full shadow-md flex items-center gap-2 backdrop-blur-sm"
         >
-            <img
-                :src="item.img"
-                class="rounded-2xl border-4 border-white shadow-md object-cover w-[90%] aspect-video transition-transform duration-500 ease-out group-hover:scale-105"
-                :alt="item.title"
-            />
+          <i :class="['fa', item.badge.icon, 'text-blue-600']"></i>
+          <span>{{ item.badge.text }}</span>
         </div>
+      </div>
+  
+      <!-- Contenu -->
+      <div class="w-full md:w-1/2 space-y-4">
+        <h3 class="text-2xl font-bold text-gray-900">
+          {{ item.title }}
+        </h3>
+  
+        <p
+          class="text-gray-700 leading-relaxed"
+          v-html="item.description"
+        ></p>
+  
+        <button
+          class="mt-3 inline-flex items-center gap-2 px-5 py-2.5 bg-teal-500 text-white rounded-full font-medium shadow-md hover:bg-blue-700 transition-all"
+        >
+          <i class="fa fa-arrow-right"></i>
+          En savoir plus
+        </button>
+      </div>
     </div>
-</template>
-
-<script setup>
-defineProps({
+  </template>
+  
+  <script setup>
+  defineProps({
     item: Object,
     reverse: Boolean,
-});
-</script>
-
-<style scoped>
-@keyframes bounce-slow {
-    0% {
-        transform: translateY(0);
-    }
-    100% {
-        transform: translateY(6px);
-    }
-}
-.animate-bounce-slow {
-    animation: bounce-slow 2.5s ease-in-out infinite alternate;
-}
-</style>
+  });
+  </script>
+  
+  <style scoped>
+  /* ✅ Petites animations subtiles */
+  button {
+    transform: translateY(0);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(37, 99, 235, 0.3);
+  }
+  </style>
+  

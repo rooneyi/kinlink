@@ -90,7 +90,7 @@ const cardsList = cardData;
             >
                 <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
                     Partager et
-                    <span class="inline-block bg-blue-50 border border-blue-200 text-blue-600 px-4 py-1 rounded-full font-semibold ml-2 scale-100">
+                    <span class="inline-block bg-blue-50 border border-blue-200 text-teal-600 px-4 py-1 rounded-full font-semibold ml-2 scale-100">
             collaborer
           </span>
                 </h2>
@@ -113,14 +113,29 @@ const cardsList = cardData;
                     :style="{ transitionDelay: `${i * 0.15}s` }"
                 >
           <span
-              class="absolute -top-4 left-6 bg-gradient-to-r from-blue-600 to-blue-200 text-white text-sm font-semibold rounded-full px-4 py-1 shadow-md animate-bounce-slow"
+              class="absolute -top-4 left-6 text-white text-sm font-semibold rounded-full px-4 py-1 shadow-md animate-bounce-slow"
+              :class="{
+                'bg-gradient-to-r from-blue-600 to-blue-400': i === 0,
+                'bg-gradient-to-r from-teal-600 to-teal-400': i === 1,
+                'bg-gradient-to-r from-purple-600 to-purple-400': i === 2,
+              }"
           >
             {{ card.badge }}
           </span>
 
                     <div>
-                        <h3 class="text-xl font-semibold text-blue-600 mb-3 flex items-center gap-2">
-                            <component :is="card.icon" class="w-5 h-5 text-blue-500" />
+                        <h3 class="text-xl font-semibold mb-3 flex items-center gap-2"
+                            :class="{
+                              'text-blue-600': i === 0,
+                              'text-teal-600': i === 1,
+                              'text-purple-600': i === 2,
+                            }">
+                            <component :is="card.icon" class="w-5 h-5"
+                              :class="{
+                                'text-blue-500': i === 0,
+                                'text-teal-500': i === 1,
+                                'text-purple-500': i === 2,
+                              }" />
                             {{ card.title }}
                         </h3>
                         <p class="text-gray-600 leading-relaxed">
@@ -130,7 +145,12 @@ const cardsList = cardData;
 
                     <a
                         href="/register"
-                        class="mt-6 inline-flex items-center justify-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-full shadow-md transition-transform transform group-hover:-translate-y-1 group-hover:scale-[1.03]"
+                        class="mt-6 inline-flex items-center justify-center gap-2 px-6 py-3 text-white font-medium rounded-full shadow-md transition-transform transform group-hover:-translate-y-1 group-hover:scale-[1.03]"
+                        :class="{
+                          'bg-blue-600 hover:bg-blue-700': i === 0,
+                          'bg-teal-600 hover:bg-teal-700': i === 1,
+                          'bg-purple-700 hover:bg-purple-700': i === 2,
+                        }"
                     >
                         Rejoindre maintenant
                         <svg

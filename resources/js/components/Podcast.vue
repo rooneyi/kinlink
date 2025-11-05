@@ -9,10 +9,15 @@
             </h3>
 
             <!-- Audio player -->
-            <div class="w-full md:w-auto flex justify-center md:justify-end">
+            <div 
+                class="w-full md:w-auto flex justify-center md:justify-end"
+                @mouseenter="playAudio"
+                @mouseleave="pauseAudio"
+            >
                 <audio
+                    ref="audioPlayer"
                     controls
-                    class="w-full md:w-[320px] rounded-lg shadow-md focus:outline-none"
+                    class="w-full md:w-[320px] rounded-lg shadow-md focus:outline-none transition-all hover:shadow-lg"
                 >
                     <source src="/podcast/interview4.mp3" type="audio/mp3" />
                     Votre navigateur ne supporte pas la lecture audio.
@@ -24,5 +29,19 @@
 </template>
 
 <script setup>
-// Aucun script nécessaire ici
+import { ref } from 'vue';
+
+const audioPlayer = ref(null);
+
+const playAudio = () => {
+    if (audioPlayer.value) {
+        audioPlayer.value.play();
+    }
+};
+
+const pauseAudio = () => {
+    if (audioPlayer.value) {
+        audioPlayer.value.pause();
+    }
+};
 </script>

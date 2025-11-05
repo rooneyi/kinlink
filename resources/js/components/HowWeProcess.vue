@@ -44,30 +44,50 @@ const items = ref([
 
 <template>
     <section class="relative overflow-hidden bg-gray-50 py-24">
+        <!-- ✅ Fond à grille subtile -->
         <div
             class="absolute inset-0 bg-[linear-gradient(to_right,rgba(0,0,0,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.03)_1px,transparent_1px)] bg-[size:50px_50px] bg-fixed"
         ></div>
 
-        <div class="relative z-10 container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl sm:text-5xl font-bold text-gray-900 leading-tight">
+        <div class="relative z-10 container mx-auto px-6 sm:px-8">
+            <!-- ✅ Titre principal -->
+            <div class="text-center mb-20">
+                <h2 class="text-2xl sm:text-4xl font-semi-bold text-gray-900 leading-tight mb-4">
                     Bienvenue sur la plateforme qui met le
                     <span class="text-blue-600">génie africain</span> en action !
                 </h2>
+                <p class="text-gray-600 max-w-2xl mx-auto text-lg">
+                    Découvrez comment nos communautés transforment la collaboration,
+                    l’innovation et les opportunités en Afrique.
+                </p>
             </div>
 
-            <!-- Video -->
-            <video
-                controls
-                muted
-                autoplay
-                poster="/assets/img/banner/collaboration.jpg"
-                class="rounded-2xl shadow-lg border-4 border-white mb-16 w-full"
+            <!-- ✅ Section vidéo centrée -->
+            <div
+                class="flex justify-center items-center mb-24 px-4 sm:px-8"
             >
-                <source src="/assets/video/spot-2.mp4" type="video/mp4" />
-            </video>
+                <div
+                    class="relative w-full max-w-4xl aspect-video rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-white"
+                >
+                    <video
+                        controls
+                        muted
+                        autoplay
+                        loop
+                        poster="/assets/img/banner/collaboration.jpg"
+                        class="absolute inset-0 w-full h-full object-cover"
+                    >
+                        <source src="/assets/viedo/kinlink.mp4" type="video/mp4" />
+                    </video>
 
-            <!-- Process rows -->
+                    <!-- ✅ Petit dégradé esthétique -->
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent pointer-events-none"
+                    ></div>
+                </div>
+            </div>
+
+            <!-- ✅ Liste des process -->
             <div class="flex flex-col gap-14 max-w-5xl mx-auto">
                 <ProcessRow
                     v-for="(item, index) in items"
@@ -79,4 +99,5 @@ const items = ref([
         </div>
     </section>
 </template>
+
 

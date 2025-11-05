@@ -172,7 +172,7 @@ onUnmounted(() => {
         transform: translateX(0);
     }
     to {
-        transform: translateX(-95%);
+        transform: translateX(-85%);
     }
 }
 @keyframes waveMoveFast {
