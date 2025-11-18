@@ -47,5 +47,17 @@ Route::get('wenze', function () {
     return Inertia::render('WenzeEmarket');
 })->name('wenze');
 
+Route::get('community', function () {
+    return Inertia::render('Community');
+})->name('community');
+
+Route::get('profile', function () {
+    return Inertia::render('Profile');
+})->name('profile');
+
+Route::get('mission-submission', function () {
+    return Inertia::render('MissionSubmission');
+})->name('mission.submission');
+
 require __DIR__.'/settings.php';
 require __DIR__.'/auth.php';
