@@ -21,7 +21,7 @@
                         Saisissez l’opportunité de mettre vos compétences au service d'entreprises digitales.
                     </p>
                     <Link
-                        href="/user-applications"
+                        href="/mission-submission"
                         class="btn btn-outline w-max px-6 py-4 text-lg sm:text-lg rounded-full border-1 border-teal-500 hover:bg-blue-500 hover:text-white shadow-2xl transition-transform transform hover:scale-105"
                     >
                         Mes candidatures
