@@ -6,11 +6,23 @@ import PartnerCard from '@/components/PartnerCard.vue'
 import Badge from '@/components/ui/Badge.vue'
 import Button from '@/components/ui/button/Button.vue'
 import { onMounted, ref } from 'vue'
+import axios from 'axios'
 
 const visibleSections = ref({
   hero: false,
   products: false,
   partners: false,
+})
+
+const articles = ref([])
+
+onMounted(async () => {
+  try {
+    const response = await axios.get('/wenze-articles')
+    articles.value = response.data
+  } catch (error) {
+    console.error('Erreur lors de la récupération des articles :', error)
+  }
 })
 
 onMounted(() => {
@@ -103,7 +115,7 @@ onMounted(() => {
     <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
       <div
         v-for="(item, i) in [
-          { 
+          {
             icon: 'fa-laptop',
             title: 'Matériel informatique',
             desc: 'Ordinateurs, accessoires et équipements professionnels.',

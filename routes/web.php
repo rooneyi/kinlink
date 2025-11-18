@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Models\Mission;
+use App\Models\Article;
 
 Route::get('/', function () {
     return Inertia::render('Home');
@@ -58,6 +60,14 @@ Route::get('profile', function () {
 Route::get('mission-submission', function () {
     return Inertia::render('MissionSubmission');
 })->name('mission.submission');
+
+Route::get('missions-data', function () {
+    return response()->json(Mission::all());
+});
+
+Route::get('wenze-articles', function () {
+    return response()->json(Article::all());
+});
 
 require __DIR__.'/settings.php';
 require __DIR__.'/auth.php';

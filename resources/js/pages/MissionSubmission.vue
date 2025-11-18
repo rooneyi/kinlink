@@ -34,13 +34,19 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
+import axios from 'axios';
 
-const missions = ref([
-  { id: 1, title: 'Mission 1', description: 'Description de la mission 1', deadline: '2025-12-01' },
-  { id: 2, title: 'Mission 2', description: 'Description de la mission 2', deadline: '2025-12-15' },
-  { id: 3, title: 'Mission 3', description: 'Description de la mission 3', deadline: '2025-12-31' },
-]);
+const missions = ref([]);
+
+onMounted(async () => {
+  try {
+    const response = await axios.get('/missions-data');
+    missions.value = response.data;
+  } catch (error) {
+    console.error('Erreur lors de la récupération des missions :', error);
+  }
+});
 
 const mission = ref({
   title: '',
